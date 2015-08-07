@@ -1,0 +1,13 @@
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server ipv6only=on;
+        server_name localhost;
+        root /ceph;
+        location / {
+            root     /ceph/;
+            dav_methods  PUT;
+            autoindex on;
+            create_full_put_path   on;
+            client_max_body_size 10000m;
+        }
+}
